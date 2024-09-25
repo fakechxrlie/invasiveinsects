@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvasiveInsects</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px; /* Reduced padding for a smaller navbar */
+            display: flex;
+            justify-content: space-between; /* Aligns text and button */
+            align-items: center; /* Center vertically */
+        }
+        .navbar h1 {
+            margin: 0; /* Remove default margin */
+            font-size: 1.5em; /* Adjust font size */
+        }
+        .home-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em; /* Increase emoji size */
+            cursor: pointer;
+        }
+        .home-button:hover {
+            color: #575757; /* Change color on hover */
+        }
+        /* Map styles */
+        #map {
+            height: calc(100vh - 50px); /* Adjust height based on navbar height */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>InvasiveInsects</h1>
+        <button class="home-button">🏠</button>
+    </div>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map centered on Chattanooga, TN
+        const map = L.map('map').setView([35.0456, -85.3097], 13);
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // Predefined zone in Chattanooga
+        const chattanoogaZone = L.circle([35.0456, -85.3097], {
+            color: 'blue',
+            fillColor: '#30f',
+            fillOpacity: 0.05,
+            radius: 100000 // radius in meters
+        }).addTo(map);
+
+        // Bind a popup with information to the predefined zone
+        chattanoogaZone.bindPopup('The Japanese Beetle (Popillia japonica) is an invasive pest originating from Japan that has become widespread in North America. It is known for its striking metallic green exoskeleton and copper-hued wings. The beetle inflicts significant damage to a wide range of plant species, both as grubs that gnaw on grass roots and as adults that feed on foliage, flowers, and fruits');
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

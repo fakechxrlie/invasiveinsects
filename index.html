@@ -112,12 +112,16 @@
             },
             // Add more zones here with different circles and information
             {
-                circle: L.circle([35.0656, -85.3197], {
-                    color: 'red',
-                    fillColor: '#f30',
-                    fillOpacity: 0.05,
-                    radius: 10000 // radius in meters
-                }).addTo(map),
+                var polygon = L.polygon([
+    [35.0657, -85.305],  // Chattanooga, TN
+    [34.9323, -85.2545], // Fort Oglethorpe, GA
+    [34.7304, -85.2905], // Lafayette, GA
+    [34.6956, -85.4892], // Trenton, GA
+    [34.4412, -85.7172], // Fort Payne, AL
+    [34.3342, -85.1728], // Rome, GA
+    [34.8363, -84.9241], // Dalton, GA
+    [35.1406, -85.1167]  // Back to Tennessee (Harrison, TN)
+]).addTo(map);
                 title: 'Emerald Ash Borer',
                 info: 'The Emerald Ash Borer (Agrilus planipennis) is an invasive beetle that attacks ash trees. It is known for its metallic green color and can cause significant tree mortality.'
             }

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Spotted Insects - Invasive Insects</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        nav {
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s;
+            padding: 10px 15px;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        main {
+            padding-top: 80px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="database.html">Database</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="report.html">Report Spotted Insects</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Report Spotted Insects</h1>
+        <form id="insectReportForm">
+            <label for="insectName">Insect Name:</label>
+            <input type="text" id="insectName" name="insectName" required>
+
+            <label for="state">State:</label>
+            <select id="state" name="state" required>
+                <option value="">Select a state</option>
+                <option value="Tennessee">Tennessee</option>
+                <option value="Alabama">Alabama</option>
+                <option value="Georgia">Georgia</option>
+                <!-- Add more states as needed -->
+            </select>
+
+            <label for="county">County:</label>
+            <input type="text" id="county" name="county" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4"></textarea>
+
+            <label for="image">Upload an Image (optional):</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Submit Report</button>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('insectReportForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(this); // Create FormData object to handle form data
+
+            // Make an API request to send the form data
+            fetch('YOUR_SERVER_ENDPOINT', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Report submitted successfully!');
+                this.reset(); // Reset the form after submission
+            })
+            .catch(error => {
+                console.error('Error submitting the report:', error);
+                alert('There was an error submitting your report. Please try again later.');
+            });
+        });
+    </script>
+
+</body>
+</html>

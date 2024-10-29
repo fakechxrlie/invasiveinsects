@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Invasive Insects</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Set body and html to have no margins and full height */
+        html, body {
+            margin: 0;
+            height: 100%;
+            font-family: Arial, sans-serif; /* Set a default font */
+            color: #333; /* Text color */
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #333; /* Dark background color */
+            position: fixed; /* Pin the navbar to the top */
+            top: 0; /* Align to the top of the page */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure it stays above other content */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+            padding: 15px 0; /* Add vertical padding for spacing */
+        }
+
+        nav ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+            text-align: center; /* Center the items */
+            margin: 0; /* Remove default margin */
+        }
+
+        nav ul li {
+            display: inline; /* Display items in a single line */
+            margin: 0 20px; /* Margin between items */
+        }
+
+        nav ul li a {
+            color: white; /* White text color */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Bold text */
+            font-size: 18px; /* Font size */
+            transition: color 0.3s; /* Smooth color transition */
+            padding: 10px 15px; /* Add padding around text */
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50; /* Change color on hover */
+        }
+
+        /* Content Styles */
+        main {
+            padding-top: 80px; /* Prevent content from being hidden behind the navbar */
+            text-align: center; /* Center the text */
+            padding: 20px; /* Padding for main content */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Title size */
+            margin-bottom: 20px; /* Space below title */
+        }
+
+        p {
+            font-size: 1.2em; /* Paragraph size */
+            line-height: 1.5; /* Line height for readability */
+            max-width: 800px; /* Max width for paragraphs */
+            margin: auto; /* Center paragraphs */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="database.html">Database</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="report.html">Report Spotted Insects</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Welcome to the Invasive Insects Database</h1>
+        <p>
+            This website serves as a comprehensive resource for information about invasive insect species in the United States. 
+            Here, you can explore various species, their habitats, and the counties where they have been spotted. 
+            Our goal is to raise awareness about invasive insects and provide valuable information to help manage their impact 
+            on local ecosystems and agriculture.
+        </p>
+        <p>
+            Use the navigation bar above to access our database of invasive insects, view an interactive map to see where 
+            different species are located, or report any sightings you may encounter. Your contributions will help us 
+            keep our community informed and protect our natural resources.
+        </p>
+    </main>
+
+</body>
+</html>

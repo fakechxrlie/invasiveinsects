@@ -1,0 +1,28 @@
+{
+  "hamilton_tn": {
+    "insects": [
+      {
+        "name": "Asian Longhorned Beetle",
+        "description": "A destructive pest of hardwood trees.",
+        "image": "https://example.com/asian-beetle.jpg",
+        "moreInfo": "https://invasiveinsects.vercel.app/asian-beetle.html"
+      },
+      {
+        "name": "Emerald Ash Borer",
+        "description": "Kills ash trees by disrupting nutrient flow.",
+        "image": "https://example.com/emerald-borer.jpg",
+        "moreInfo": "https://invasiveinsects.vercel.app/emerald-ash.html"
+      }
+    ]
+  },
+  "fulton_ga": {
+    "insects": [
+      {
+        "name": "Brown Marmorated Stink Bug",
+        "description": "Feeds on crops and damages fruits.",
+        "image": "https://example.com/stink-bug.jpg",
+        "moreInfo": "https://invasiveinsects.vercel.app/stink-bug.html"
+      }
+    ]
+  }
+}

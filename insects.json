@@ -9,22 +9,155 @@
     {
         "name": "European Oak Borer",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8swIcgWk_O5ZvFyCFWV5rssxtDLXHrigMcQ&s",
-        "description": "The european oak borer is similar in appearance to the ash borer, but instead of laying eggs under the bark of ash trees, it lays eggs under the bark of dark oak trees. It is prominent in northern georgia. ",
+        "description": "The european oak borer is similar in appearance to the ash borer, but instead of laying eggs under the bark of ash trees, it lays eggs under the bark of dark oak trees. It is prominent in northern georgia.",
         "states": ["Western GA", "Southwest AL", "Southwest TN"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Asian & Citrus Longhorned Beetle",
         "image": "data:image/jpeg;base64,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",
-        "description": "The asian longhorn beetle is an invasive species that bores into hardtrees ( commonly maple trees.) They are native to korea, and appear intimidating at first. The most common way to remove these beetles is to remove the tree that they are nested in.",
+        "description": "The asian longhorn beetle is an invasive species that bores into hard trees (commonly maple trees). They are native to Korea and appear intimidating at first. The most common way to remove these beetles is to remove the tree that they are nested in.",
         "states": ["Southern AL", "GA"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Emerald Ash Borer",
         "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQNEdXEfCvarLGUA8I75rOdNnEHyyl1wFyAwu8HOcTJZ_hijJkX",
-        "description": "The emerald ash borer is a dark green beetle that is native to Asia. It is considered an invasive species and is prominent in georgia. The female beetles lay eggs in the bark of ash trees, wich can be harmful to the environment.",
+        "description": "The emerald ash borer is a dark green beetle that is native to Asia. It is considered an invasive species and is prominent in Georgia. The female beetles lay eggs in the bark of ash trees, which can be harmful to the environment.",
         "states": ["TN", "AL", "GA"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Mediterranean Pine Engraver",
+        "image": "",
+        "description": "The mediterranean pine engraver is a small species of beetle that infests trees that have recently fallen. This invasive species is common in Georgia.",
+        "states": ["GA"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Walnut Twig Beetle",
+        "image": "",
+        "description": "Walnut twig beetles are a very small type of species that originated in the western area of the United States. They feed on species of walnut trees in the tri-state area and carry fungi that can be harmful to walnut trees.",
+        "states": ["GA", "AL", "TN"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Pine Shoot Beetles",
+        "image": "",
+        "description": "Pine shoot beetles are a species that are prominent and native to Europe, northwestern Africa, and northern Asia. They are a very destructive species that goes after smaller or weaker pine trees.",
+        "states": ["GA"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Asian Tiger Mosquito",
+        "image": "",
+        "description": "Asian tiger mosquitoes are native to Southeast Asia. They prey on small and large animals and are a big issue all across America.",
+        "states": ["GA", "AL", "FL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Redbay Ambrosia Beetle",
+        "image": "",
+        "description": "The redbay ambrosia beetle is an insect that spreads disease to trees such as sassafras, avocado, and redbay trees.",
+        "states": ["GA", "AL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Spotted Wing Drosophila (SWD)",
+        "image": "",
+        "description": "Spotted wing drosophila are small flies that commonly eat fruit. Originating from Southeast Asia, these small bugs can be found often in gardens near fruits or vegetables.",
+        "states": ["GA", "AL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Bermudagrass Stem Maggot",
+        "image": "",
+        "description": "Bermudagrass stem maggots are pests that affect Bermudagrass, causing damage to lawns and pastures.",
+        "states": ["GA", "AL", "FL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Hemlock Woolly Adelgid (HWA)",
+        "image": "",
+        "description": "Hemlock woolly adelgids are small insects who feed off of sap from hemlock and spruce trees.",
+        "states": ["GA", "SC", "NC"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Sugarcane Aphid",
+        "image": "",
+        "description": "Sugarcane aphids are small invasive insects that feed off of sap from sweet sorghum plants. They most likely originate from Asia or Africa, and are quite common in the southeast.",
+        "states": ["GA", "AL", "FL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Azalea Bark Scale",
+        "image": "",
+        "description": "Azalea bark scales are soft scaled insects that lay eggs on many different plants in the southeast which causes harm to native species such as blueberries, willow, and poplar trees.",
+        "states": ["GA", "AL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Kudzu Bug",
+        "image": "",
+        "description": "Kudzu bugs mostly affect crops like legumes. They are native to India and China.",
+        "states": ["GA", "AL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Pink Hibiscus Mealybug",
+        "image": "",
+        "description": "Pink hibiscus mealybug affects Florida crops including citrus, avocado, carambola, fig, guava, mango, soursop, and sugarcane; vegetable crops including asparagus, beans, beets, cabbage, peanuts, pigeon pea, cucumber, lettuce, pepper, pumpkin, and tomato; forest trees, and many species of ornamental plants. They are native to Southeast Asia and Australia.",
+        "states": ["FL", "GA"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Tawny Crazy Ant",
+        "image": "",
+        "description": "Little is known about their impact on wildlife, but they do cause annoyance to homeowners and also things like songbirds. They are native to South America.",
+        "states": ["GA", "AL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Sirex Woodwasp",
+        "image": "",
+        "description": "Native to Eurasia, the Sirex woodwasp mostly feeds on pine trees.",
+        "states": ["GA", "AL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "European Gypsy Moth",
+        "image": "",
+        "description": "The European gypsy moth mainly feeds on deciduous trees and is native to Europe and North Africa.",
+        "states": ["GA", "TN"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Old World Bollworm",
+        "image": "",
+        "description": "The Old World bollworm feeds on more than 180 plant species, including corn, cotton, small grains, soybeans, peppers, and tomatoes. They are native to Africa, Asia, Australia, and Europe.",
+        "states": ["GA", "AL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Egyptian Cottonworm",
+        "image": "",
+        "description": "The Egyptian cottonworm affects at least 87 plant species, including cotton, corn, tomatoes, and many fruits and vegetables. They are native to Africa and the Mediterranean area.",
+        "states": ["GA", "AL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "Light Brown Apple Moth (LBAM)",
+        "image": "",
+        "description": "Host plants include deciduous tree fruits, subtropical fruits, berry fruits, ornamentals, and forest and shade trees. It is native to Australia.",
+        "states": ["GA", "AL"],
+        "counties": ["Located throughout all counties in listed states/areas."]
+    },
+    {
+        "name": "False Codling Moth",
+        "image": "",
+        "description": "Larvae of the moth feed on a wide range of crops from cotton and macadamia nuts to Citrus species. It is from the sub-Saharan region of Africa.",
+        "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     }
 ]

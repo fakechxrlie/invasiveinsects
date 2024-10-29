@@ -1,124 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InvasiveInsects</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        /* Navbar styles */
-        .navbar {
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar h1 {
-            margin: 0;
-            font-size: 1.5em;
-        }
-        .home-button {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-        .home-button:hover {
-            color: #575757;
-        }
-        /* Map styles */
-        #map {
-            height: calc(100vh - 50px);
-            width: 100%;
-        }
-        /* Sidebar styles */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -300px; /* Hidden by default */
-            width: 300px;
-            height: 100%;
-            background-color: white;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-            transition: right 0.3s ease;
-            padding: 20px;
-            z-index: 1000; /* Ensure it sits above the map */
-        }
-        .sidebar.open {
-            right: 0; /* Slide in */
-        }
-        .close-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.5em;
-            color: black;
-        }
-    </style>
+  <title>Interactive County Map - Invasive Insects</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    /* Set body and html to have no margins and full height */
+    html, body {
+      margin: 0;
+      height: 100%;
+    }
+    
+    /* Set the map to fill the screen */
+    #map {
+      width: 100%;
+      height: 100%; /* Fill entire height */
+    }
+  </style>
 </head>
 <body>
-    <div class="navbar">
-        <h1>InvasiveInsects</h1>
-        <button class="home-button">🏠</button>
-    </div>
-    <div id="map"></div>
-    <div class="sidebar" id="sidebar">
-        <button class="close-button" onclick="toggleSidebar()">✖</button>
-        <h2 id="species-title">Invasive Species Information</h2>
-        <p id="species-info">Click on a circle to learn more.</p>
-    </div>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        // Initialize the map centered on Chattanooga, TN
-        const map = L.map('map').setView([35.0456, -85.3097], 13);
 
-        // Add OpenStreetMap tile layer
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
+  <div id="map"></div>
 
-        // Function to toggle the sidebar
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-        }
+  <script>
+    const map = L.map('map').setView([34.5, -85], 6);
 
-        // Function to update sidebar content
-        function updateSidebar(title, info) {
-            document.getElementById('species-title').textContent = title;
-            document.getElementById('species-info').textContent = info;
-            toggleSidebar(); // Open the sidebar
-        }
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
 
-        // Predefined zones in Chattanooga
-        const zones = [
-            {
-                circle: L.circle([35.0456, -85.4097], {
-                    color: 'blue',
-                    fillColor: '#30f',
-                    fillOpacity: 0.05,
-                    radius: 10000 // radius in meters
-                }).addTo(map),
-                title: 'Japanese Beetle',
-                info: 'The Japanese Beetle (Popillia japonica) is an invasive pest originating from Japan that has become widespread in North America. It is known for its striking metallic green exoskeleton and copper-hued wings. The beetle inflicts significant damage to a wide range of plant species, both as grubs that gnaw on grass roots and as adults that feed on foliage, flowers, and fruits.'
-            },
-            // Add more zones here with different circles and information
-        ];
+    // Editable list of counties and their URLs
+    const counties = {
+      "Hamilton": "https://invasiveinsects.vercel.app/hamilton.html",
+      "DeKalb": "https://invasiveinsects.vercel.app/dekalb.html",
+      "Jackson": "https://invasiveinsects.vercel.app/jackson.html",
+      "Bradley": "https://invasiveinsects.vercel.app/bradley.html",
+      "Marion": "https://invasiveinsects.vercel.app/marion.html",
+      "Fulton": "https://invasiveinsects.vercel.app/fulton.html"
+    };
 
-        // Add click event to each circle to open the sidebar with corresponding info
-        zones.forEach(zone => {
-            zone.circle.on('click', () => {
-                updateSidebar(zone.title, zone.info);
-            });
-        });
-    </script>
+    // Function to load GeoJSON and add click events for specified counties
+    function loadGeoJson(url) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error(`Failed to load GeoJSON: ${url}`);
+          return response.json();
+        })
+        .then(data => {
+          L.geoJSON(data, {
+            onEachFeature: (feature, layer) => {
+              const countyName = feature.properties.NAME;
+              console.log('Processing county:', countyName); // Log the county being processed
+              
+              if (counties[countyName]) { // Only add click event for specified counties
+                layer.on('click', () => {
+                  console.log('Clicked county:', countyName); // Log when a county is clicked
+                  window.open(counties[countyName], '_blank'); // Redirect to county URL
+                });
+              }
+            }
+          }).addTo(map);
+        })
+        .catch(error => console.error('Error loading GeoJSON:', error));
+    }
+
+    // Load GeoJSON files for the specified counties
+    loadGeoJson('https://invasiveinsects.vercel.app/alabama.geojson');
+    loadGeoJson('https://invasiveinsects.vercel.app/georgia.geojson');
+    loadGeoJson('https://invasiveinsects.vercel.app/tennessee.geojson');
+  </script>
+
 </body>
 </html>

@@ -1,16 +1,16 @@
 [
     {
-        "name": "Asian Giant Hornet",
-        "image": "https://example.com/images/asian_giant_hornet.jpg",
+        "name": "Northern Giant Hornet (AKA Murder Hornet)",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/20200512-P1100071_Vespa_mandarinia_japonica.jpg",
         "description": "A large hornet that can pose a threat to honeybees.",
-        "states": ["Washington", "Oregon"],
-        "counties": ["King", "Pierce"]
+        "states": ["Georgia"],
+        "counties": ["DeKalb", "Bartow", "Cherokee"]
     },
     {
         "name": "Emerald Ash Borer",
-        "image": "https://example.com/images/emerald_ash_borer.jpg",
+        "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQNEdXEfCvarLGUA8I75rOdNnEHyyl1wFyAwu8HOcTJZ_hijJkX",
         "description": "A beetle that infests and kills ash trees.",
-        "states": ["Michigan", "Illinois"],
-        "counties": ["Cook", "Wayne"]
+        "states": ["TN", "AL", "GA"],
+        "counties": ["Located throughout all counties in listed states."]
     }
 ]

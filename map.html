@@ -1,76 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Interactive County Map - Invasive Insects</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <style>
-    /* Set body and html to have no margins and full height */
-    html, body {
-      margin: 0;
-      height: 100%;
-    }
-    
-    /* Set the map to fill the screen */
-    #map {
-      width: 100%;
-      height: 100%; /* Fill entire height */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive County Map - Invasive Insects</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Set body and html to have no margins and full height */
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #333; /* Dark background color */
+            position: fixed; /* Pin the navbar to the top */
+            top: 0; /* Align to the top of the page */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure it stays above other content */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+            padding: 15px 0; /* Add vertical padding for spacing */
+        }
+
+        nav ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+            text-align: center; /* Center the items */
+            margin: 0; /* Remove default margin */
+        }
+
+        nav ul li {
+            display: inline; /* Display items in a single line */
+            margin: 0 20px; /* Margin between items */
+        }
+
+        nav ul li a {
+            color: white; /* White text color */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Bold text */
+            font-size: 18px; /* Font size */
+            transition: color 0.3s; /* Smooth color transition */
+            padding: 10px 15px; /* Add padding around text */
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50; /* Change color on hover */
+        }
+
+        /* Set the map to fill the screen */
+        #map {
+            width: 100%;
+            height: 100%; /* Fill entire height */
+            padding-top: 80px; /* Prevent content from being hidden behind the navbar */
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
 
-  <div id="map"></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="database.html">Database</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="report.html">Report Spotted Insects</a></li>
+        </ul>
+    </nav>
 
-  <script>
-    const map = L.map('map').setView([34.5, -85], 6);
+    <div id="map"></div>
 
-    // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
+    <script>
+        const map = L.map('map').setView([34.5, -85], 6);
 
-    // Editable list of counties and their URLs
-    const counties = {
-      "Hamilton": "https://invasiveinsects.vercel.app/hamilton.html",
-      "DeKalb": "https://invasiveinsects.vercel.app/dekalb.html",
-      "Jackson": "https://invasiveinsects.vercel.app/jackson.html",
-      "Bradley": "https://invasiveinsects.vercel.app/bradley.html",
-      "Marion": "https://invasiveinsects.vercel.app/marion.html",
-      "Fulton": "https://invasiveinsects.vercel.app/fulton.html"
-    };
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
 
-    // Function to load GeoJSON and add click events for specified counties
-    function loadGeoJson(url) {
-      fetch(url)
-        .then(response => {
-          if (!response.ok) throw new Error(`Failed to load GeoJSON: ${url}`);
-          return response.json();
-        })
-        .then(data => {
-          L.geoJSON(data, {
-            onEachFeature: (feature, layer) => {
-              const countyName = feature.properties.NAME;
-              console.log('Processing county:', countyName); // Log the county being processed
-              
-              if (counties[countyName]) { // Only add click event for specified counties
-                layer.on('click', () => {
-                  console.log('Clicked county:', countyName); // Log when a county is clicked
-                  window.open(counties[countyName], '_blank'); // Redirect to county URL
-                });
-              }
-            }
-          }).addTo(map);
-        })
-        .catch(error => console.error('Error loading GeoJSON:', error));
-    }
+        // Editable list of counties and their URLs
+        const counties = {
+            "Hamilton": "https://invasiveinsects.vercel.app/hamilton.html",
+            "DeKalb": "https://invasiveinsects.vercel.app/dekalb.html",
+            "Jackson": "https://invasiveinsects.vercel.app/jackson.html",
+            "Bradley": "https://invasiveinsects.vercel.app/bradley.html",
+            "Marion": "https://invasiveinsects.vercel.app/marion.html",
+            "Fulton": "https://invasiveinsects.vercel.app/fulton.html"
+        };
 
-    // Load GeoJSON files for the specified counties
-    loadGeoJson('https://invasiveinsects.vercel.app/alabama.geojson');
-    loadGeoJson('https://invasiveinsects.vercel.app/georgia.geojson');
-    loadGeoJson('https://invasiveinsects.vercel.app/tennessee.geojson');
-  </script>
+        // Function to load GeoJSON and add click events for specified counties
+        function loadGeoJson(url) {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load GeoJSON: ${url}`);
+                    return response.json();
+                })
+                .then(data => {
+                    L.geoJSON(data, {
+                        onEachFeature: (feature, layer) => {
+                            const countyName = feature.properties.NAME;
+                            console.log('Processing county:', countyName); // Log the county being processed
+                            
+                            if (counties[countyName]) { // Only add click event for specified counties
+                                layer.on('click', () => {
+                                    console.log('Clicked county:', countyName); // Log when a county is clicked
+                                    window.open(counties[countyName], '_blank'); // Redirect to county URL
+                                });
+                            }
+                        }
+                    }).addTo(map);
+                })
+                .catch(error => console.error('Error loading GeoJSON:', error));
+        }
+
+        // Load GeoJSON files for the specified counties
+        loadGeoJson('https://invasiveinsects.vercel.app/alabama.geojson');
+        loadGeoJson('https://invasiveinsects.vercel.app/georgia.geojson');
+        loadGeoJson('https://invasiveinsects.vercel.app/tennessee.geojson');
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Asian Giant Hornet",
+        "image": "https://example.com/images/asian_giant_hornet.jpg",
+        "description": "A large hornet that can pose a threat to honeybees.",
+        "states": ["Washington", "Oregon"],
+        "counties": ["King", "Pierce"]
+    },
+    {
+        "name": "Emerald Ash Borer",
+        "image": "https://example.com/images/emerald_ash_borer.jpg",
+        "description": "A beetle that infests and kills ash trees.",
+        "states": ["Michigan", "Illinois"],
+        "counties": ["Cook", "Wayne"]
+    }
+    // Add more insects as needed
+]

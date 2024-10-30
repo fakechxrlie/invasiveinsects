@@ -29,119 +29,119 @@
     },
     {
         "name": "Mediterranean Pine Engraver",
-        "image": "",
+        "image": "https://th.bing.com/th/id/R.d2a8f2026d8e8592b217672e35b1aee9?rik=bhxUXH7%2f8uLaUg&pid=ImgRaw&r=0",
         "description": "The mediterranean pine engraver is a small species of beetle that infests trees that have recently fallen. This invasive species is common in Georgia.",
         "states": ["GA"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Walnut Twig Beetle",
-        "image": "",
+        "image": "https://th.bing.com/th/id/R.403e35edb3b842ae657d98760c8fe8c5?rik=h11Dvxfs692rSA&riu=http%3a%2f%2f1.bp.blogspot.com%2f-BLSL9PgRqx4%2fVXGvvz50oUI%2fAAAAAAAADjg%2fWTBt0zx1hvQ%2fs1600%2f5482204-LGPT.jpg&ehk=clIu%2fMhapN9NncZ6LTlM3%2bP7q97vgk8L4roDntD9e5w%3d&risl=&pid=ImgRaw&r=0",
         "description": "Walnut twig beetles are a very small type of species that originated in the western area of the United States. They feed on species of walnut trees in the tri-state area and carry fungi that can be harmful to walnut trees.",
         "states": ["GA", "AL", "TN"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Pine Shoot Beetles",
-        "image": "",
+        "image": "https://bugwoodcloud.org/images/1536x1024/5023046.jpg",
         "description": "Pine shoot beetles are a species that are prominent and native to Europe, northwestern Africa, and northern Asia. They are a very destructive species that goes after smaller or weaker pine trees.",
         "states": ["GA"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Asian Tiger Mosquito",
-        "image": "",
+        "image": "https://th.bing.com/th/id/OIP.HDkGCDaGMr12cWL34C_LuAHaFj?rs=1&pid=ImgDetMain",
         "description": "Asian tiger mosquitoes are native to Southeast Asia. They prey on small and large animals and are a big issue all across America.",
         "states": ["GA", "AL", "FL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Redbay Ambrosia Beetle",
-        "image": "",
+        "image": "https://th.bing.com/th/id/R.035aa22255616c4bad2f5796cb0b3a96?rik=%2bzzmSth9nMtKBQ&pid=ImgRaw&r=0",
         "description": "The redbay ambrosia beetle is an insect that spreads disease to trees such as sassafras, avocado, and redbay trees.",
         "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Spotted Wing Drosophila (SWD)",
-        "image": "",
+        "image": "https://th.bing.com/th/id/R.4785d0fae2650c1ab860e5e4dff0cde9?rik=RO9c9KViTpSSrQ&pid=ImgRaw&r=0",
         "description": "Spotted wing drosophila are small flies that commonly eat fruit. Originating from Southeast Asia, these small bugs can be found often in gardens near fruits or vegetables.",
         "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Bermudagrass Stem Maggot",
-        "image": "",
+        "image": "https://th.bing.com/th/id/R.c62e9750362b8fd5739d9709561f0a2b?rik=SLIQXdpfo6hbtA&riu=http%3a%2f%2fforagefax.tamu.edu%2ffiles%2f2015%2f07%2fBermudagrass-Stem-Maggot-2.jpg&ehk=3ntCeJqV3OI0JzYLbWLeQeO5sImKJUvJqGWRk6PPO5I%3d&risl=&pid=ImgRaw&r=0",
         "description": "Bermudagrass stem maggots are pests that affect Bermudagrass, causing damage to lawns and pastures.",
         "states": ["GA", "AL", "FL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Hemlock Woolly Adelgid (HWA)",
-        "image": "",
+        "image": "https://th.bing.com/th/id/OIP.vZ-Hy1Il5JuZagCcSyBcswHaEc?rs=1&pid=ImgDetMain",
         "description": "Hemlock woolly adelgids are small insects who feed off of sap from hemlock and spruce trees.",
         "states": ["GA", "SC", "NC"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Sugarcane Aphid",
-        "image": "",
+        "image": "https://th.bing.com/th/id/OIP.J9onac45Pom9mN-MFKQS4AHaFA?rs=1&pid=ImgDetMain",
         "description": "Sugarcane aphids are small invasive insects that feed off of sap from sweet sorghum plants. They most likely originate from Asia or Africa, and are quite common in the southeast.",
         "states": ["GA", "AL", "FL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Azalea Bark Scale",
-        "image": "",
+        "image": "https://th.bing.com/th/id/R.7b239ddb8bdb5ffb7648f56994f87f2d?rik=jfDoYvUx1SKvyQ&pid=ImgRaw&r=0",
         "description": "Azalea bark scales are soft scaled insects that lay eggs on many different plants in the southeast which causes harm to native species such as blueberries, willow, and poplar trees.",
         "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Kudzu Bug",
-        "image": "",
+        "image": "https://th.bing.com/th/id/R.d8fc04eb80a88ffde6ed8bf93d1d6b03?rik=GczmlLn%2fpD9LNg&pid=ImgRaw&r=0",
         "description": "Kudzu bugs mostly affect crops like legumes. They are native to India and China.",
         "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Pink Hibiscus Mealybug",
-        "image": "",
+        "image": "https://idtools.org/citrus_pests/images/0168.jpg",
         "description": "Pink hibiscus mealybug affects Florida crops including citrus, avocado, carambola, fig, guava, mango, soursop, and sugarcane; vegetable crops including asparagus, beans, beets, cabbage, peanuts, pigeon pea, cucumber, lettuce, pepper, pumpkin, and tomato; forest trees, and many species of ornamental plants. They are native to Southeast Asia and Australia.",
         "states": ["FL", "GA"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Tawny Crazy Ant",
-        "image": "",
+        "image": "https://th.bing.com/th/id/OIP.efF26H4GyZ2gySBRQX9zNQHaHa?w=173&h=180&c=7&r=0&o=5&pid=1.7",
         "description": "Little is known about their impact on wildlife, but they do cause annoyance to homeowners and also things like songbirds. They are native to South America.",
         "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Sirex Woodwasp",
-        "image": "",
+        "image": "https://th.bing.com/th/id/OIP.REiiN5ZH2f51yxqeQkzHHAHaJ4?w=122&h=180&c=7&r=0&o=5&pid=1.7",
         "description": "Native to Eurasia, the Sirex woodwasp mostly feeds on pine trees.",
         "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "European Gypsy Moth",
-        "image": "",
+        "image": "https://th.bing.com/th/id/OIP.lG4uYVz-vjPUFpA5lOZ-jgHaE8?w=270&h=180&c=7&r=0&o=5&pid=1.7",
         "description": "The European gypsy moth mainly feeds on deciduous trees and is native to Europe and North Africa.",
         "states": ["GA", "TN"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Old World Bollworm",
-        "image": "",
+        "image": "https://th.bing.com/th/id/OIP.rgsDAPlGeoQ0jGPdhsv-ggHaE0?w=268&h=180&c=7&r=0&o=5&pid=1.7",
         "description": "The Old World bollworm feeds on more than 180 plant species, including corn, cotton, small grains, soybeans, peppers, and tomatoes. They are native to Africa, Asia, Australia, and Europe.",
         "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
         "name": "Egyptian Cottonworm",
-        "image": "",
+        "image": "https://th.bing.com/th/id/OIP.mNrpsM7WPOk-071WzjuOaQAAAA?w=194&h=194&c=7&r=0&o=5&pid=1.7",
         "description": "The Egyptian cottonworm affects at least 87 plant species, including cotton, corn, tomatoes, and many fruits and vegetables. They are native to Africa and the Mediterranean area.",
         "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]
@@ -155,7 +155,7 @@
     },
     {
         "name": "False Codling Moth",
-        "image": "",
+        "image": "https://th.bing.com/th/id/OIP.WSFpgEiE_AIU9JtV0Vky3gHaHa?w=157&h=180&c=7&r=0&o=5&pid=1.7",
         "description": "Larvae of the moth feed on a wide range of crops from cotton and macadamia nuts to Citrus species. It is from the sub-Saharan region of Africa.",
         "states": ["GA", "AL"],
         "counties": ["Located throughout all counties in listed states/areas."]

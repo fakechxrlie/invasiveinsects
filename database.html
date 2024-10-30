@@ -26,10 +26,18 @@
         <!-- Insect entries will be populated here -->
     </main>
 
+    <!-- Modal for Enlarged Image -->
+    <div id="image-modal" class="modal">
+        <span id="close-modal">&times;</span>
+        <img id="modal-img" alt="Enlarged Insect">
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+
 <style>
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -48,6 +56,7 @@ input[type="text"] {
     font-size: 16px;
 }
 
+/* Insect List Styles */
 .insect {
     background: white;
     border: 1px solid #ccc;
@@ -56,12 +65,18 @@ input[type="text"] {
     margin: 10px 0;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .insect img {
     width: 80px;
     height: auto;
     margin-right: 15px;
+    transition: transform 0.3s;
+}
+
+.insect img:hover {
+    transform: scale(1.05);
 }
 
 .insect-details {
@@ -70,48 +85,77 @@ input[type="text"] {
 
 /* Navigation Bar Styles */
 nav {
-    background-color: #333; /* Dark background color */
-    position: fixed; /* Pin the navbar to the top */
-    top: 0; /* Align to the top of the page */
-    width: 100%; /* Full width */
-    z-index: 1000; /* Ensure it stays above other content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    padding: 15px 0; /* Add vertical padding for spacing */
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
 }
 
 nav ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    text-align: center; /* Center the items */
-    margin: 0; /* Remove default margin */
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
 }
 
 nav ul li {
-    display: inline; /* Display items in a single line */
-    margin: 0 20px; /* Margin between items */
+    display: inline;
+    margin: 0 20px;
 }
 
 nav ul li a {
-    color: white; /* White text color */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Bold text */
-    font-size: 18px; /* Font size */
-    transition: color 0.3s; /* Smooth color transition */
-    padding: 10px 15px; /* Add padding around text */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+    padding: 10px 15px;
 }
 
 nav ul li a:hover {
-    color: #4CAF50; /* Change color on hover */
+    color: #4CAF50;
 }
 
 body {
-    padding-top: 80px; /* Add padding to prevent content from being hidden behind the navbar */
+    padding-top: 80px;
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#close-modal {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
 </style>
 
 <script>
-// Function to fetch insect data from the JSON file
+// Fetch and display insect data
 async function fetchInsectData() {
     try {
         const response = await fetch('https://invasiveinsects.vercel.app/insects.json');
@@ -122,17 +166,21 @@ async function fetchInsectData() {
     }
 }
 
-// Function to display insects on the webpage
+// Display insects on the page
 function displayInsects(insects) {
     const insectList = document.getElementById('insect-list');
-    insectList.innerHTML = ''; // Clear existing content
+    insectList.innerHTML = ''; // Clear content
 
     insects.forEach(insect => {
         const insectDiv = document.createElement('div');
         insectDiv.classList.add('insect');
 
+        const imgElement = document.createElement('img');
+        imgElement.src = insect.image;
+        imgElement.alt = insect.name;
+        imgElement.addEventListener('click', () => openModal(insect.image));
+
         insectDiv.innerHTML = `
-            <img src="${insect.image}" alt="${insect.name}">
             <div class="insect-details">
                 <h3>${insect.name}</h3>
                 <p>${insect.description}</p>
@@ -140,28 +188,44 @@ function displayInsects(insects) {
                 <p><strong>Counties:</strong> ${insect.counties.join(', ')}</p>
             </div>
         `;
+        insectDiv.prepend(imgElement); // Add image at the start
 
         insectList.appendChild(insectDiv);
     });
 }
 
+// Open the modal with the enlarged image
+function openModal(imageSrc) {
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    modalImg.src = imageSrc;
+    modal.style.display = 'flex';
+}
+
+// Close the modal
+document.getElementById('close-modal').addEventListener('click', () => {
+    document.getElementById('image-modal').style.display = 'none';
+});
+
+// Close the modal if the user clicks outside the image
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('image-modal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
 // Search functionality
-document.getElementById('search').addEventListener('input', function() {
+document.getElementById('search').addEventListener('input', function () {
     const searchTerm = this.value.toLowerCase();
     const insects = document.querySelectorAll('.insect');
 
     insects.forEach(insect => {
         const insectName = insect.querySelector('h3').textContent.toLowerCase();
-        if (insectName.includes(searchTerm)) {
-            insect.style.display = 'flex'; // Show insect
-        } else {
-            insect.style.display = 'none'; // Hide insect
-        }
+        insect.style.display = insectName.includes(searchTerm) ? 'flex' : 'none';
     });
 });
 
-// Load insect data when the page loads
+// Load insect data on page load
 fetchInsectData();
-
-
 </script>

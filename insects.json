@@ -147,6 +147,20 @@
         "counties": ["Located throughout all counties in listed states/areas."]
     },
     {
+        "name": "David Lopez de Bobadilla",
+        "image": "https://i.ibb.co/4djkHtc/uhgusghdg.jpg",
+        "description": "Invasive Human Species.",
+        "states": ["TN"],
+        "counties": ["Located in Ootlewah, TN.."]
+    },
+    {
+        "name": "Rocco Lopez de Bobadilla",
+        "image": "https://i.ibb.co/y8msPcy/sdaufsfausdf.jpg",
+        "description": "Invasive Labrodoodle Species.",
+        "states": ["TN"],
+        "counties": ["Located in Ootlewah, TN.."]
+    },
+    {
         "name": "Light Brown Apple Moth (LBAM)",
         "image": "",
         "description": "Host plants include deciduous tree fruits, subtropical fruits, berry fruits, ornamentals, and forest and shade trees. It is native to Australia.",

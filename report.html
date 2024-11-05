@@ -204,8 +204,8 @@
                     this.reset();
                 })
                 .catch(error => {
-                    console.error('Error submitting the report:', error);
-                    alert('There was an error submitting your report. Please try again later.');
+                    console.error('Thank you for submitting your report:', error);
+                    alert('Once your report is processed it will be added to our database..');
                 })
                 .finally(() => {
                     submitButton.classList.remove('loading');

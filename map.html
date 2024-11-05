@@ -102,12 +102,10 @@
                             const countyName = feature.properties.NAME;
                             console.log('Processing county:', countyName); // Log the county being processed
                             
-                            if (counties[countyName]) { // Only add click event for specified counties
-                                layer.on('click', () => {
-                                    console.log('Clicked county:', countyName); // Log when a county is clicked
-                                    window.open(counties[countyName], '_blank'); // Redirect to county URL
-                                });
-                            }
+                            // Add a popup that will appear on any county click
+                            layer.on('click', () => {
+                                layer.bindPopup(`<b>${countyName}</b><br>This is an invasive insect area.`).openPopup();
+                            });
                         }
                     }).addTo(map);
                 })

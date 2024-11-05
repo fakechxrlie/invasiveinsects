@@ -6,83 +6,138 @@
     <title>Report Spotted Insects - Invasive Insects</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
+        /* Base Styles */
         html, body {
             margin: 0;
+            padding: 0;
             height: 100%;
-            font-family: Arial, sans-serif;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #222;
+            background-color: #f5f5f7;
         }
 
+        /* Navigation Bar */
         nav {
             background-color: #333;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            padding: 15px 0;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         nav ul {
             list-style-type: none;
             padding: 0;
-            text-align: center;
             margin: 0;
+            text-align: center;
         }
 
         nav ul li {
             display: inline;
-            margin: 0 20px;
+            margin: 0 15px;
         }
 
         nav ul li a {
-            color: white;
+            color: #f5f5f7;
             text-decoration: none;
             font-weight: bold;
             font-size: 18px;
-            transition: color 0.3s;
-            padding: 10px 15px;
+            transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
             color: #4CAF50;
         }
 
+        /* Main Content */
         main {
-            padding-top: 80px;
+            padding-top: 100px;
             text-align: center;
             padding: 20px;
         }
 
+        h1 {
+            color: #4CAF50;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+        }
+
+        /* Form Styles */
         form {
             max-width: 600px;
             margin: auto;
-            text-align: left;
+            background-color: #fff;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-top: 10px;
         }
 
         form input, form select, form textarea {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 16px;
         }
 
         form button {
+            width: 100%;
             background-color: #4CAF50;
             color: white;
+            padding: 12px;
             border: none;
-            padding: 10px;
-            cursor: pointer;
             border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+        form button.loading::after {
+            content: "Submitting...";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
         }
 
         form button:hover {
             background-color: #45a049;
+        }
+
+        form button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 600px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            form {
+                padding: 15px;
+            }
         }
     </style>
 </head>
@@ -93,15 +148,16 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="database.html">Database</a></li>
             <li><a href="map.html">Map</a></li>
-            <li><a href="report.html">Report Spotted Insects</a></li>
+            <li><a href="report.html">Report Insects</a></li>
         </ul>
     </nav>
 
     <main>
         <h1>Report Spotted Insects</h1>
+        <p>Help us track invasive species by reporting any insects you've spotted. Your submission aids in conservation efforts!</p>
         <form id="insectReportForm">
             <label for="insectName">Insect Name:</label>
-            <input type="text" id="insectName" name="insectName" required>
+            <input type="text" id="insectName" name="insectName" placeholder="Enter the insect's name (e.g., Asian Longhorned Beetle)" required>
 
             <label for="state">State:</label>
             <select id="state" name="state" required>
@@ -109,14 +165,14 @@
                 <option value="Tennessee">Tennessee</option>
                 <option value="Alabama">Alabama</option>
                 <option value="Georgia">Georgia</option>
-                <!-- Add more states as needed -->
+                <!-- Additional states can be added here -->
             </select>
 
             <label for="county">County:</label>
-            <input type="text" id="county" name="county" required>
+            <input type="text" id="county" name="county" placeholder="Enter the county (e.g., Davidson)" required>
 
             <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="4"></textarea>
+            <textarea id="description" name="description" rows="4" placeholder="Provide any additional details about the sighting"></textarea>
 
             <label for="image">Upload an Image (optional):</label>
             <input type="file" id="image" name="image" accept="image/*">
@@ -127,24 +183,35 @@
 
     <script>
         document.getElementById('insectReportForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault();
 
-            const formData = new FormData(this); // Create FormData object to handle form data
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button');
 
-            // Make an API request to send the form data
-            fetch('YOUR_SERVER_ENDPOINT', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Report submitted successfully!');
-                this.reset(); // Reset the form after submission
-            })
-            .catch(error => {
-                console.error('Error submitting the report:', error);
-                alert('There was an error submitting your report. Please try again later.');
-            });
+            // Disable button and show loading text
+            submitButton.classList.add('loading');
+            submitButton.disabled = true;
+
+            // Simulate network request delay
+            setTimeout(() => {
+                fetch('YOUR_SERVER_ENDPOINT', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Thank you for submitting your report!');
+                    this.reset();
+                })
+                .catch(error => {
+                    console.error('Error submitting the report:', error);
+                    alert('There was an error submitting your report. Please try again later.');
+                })
+                .finally(() => {
+                    submitButton.classList.remove('loading');
+                    submitButton.disabled = false;
+                });
+            }, 1000); // Simulated delay of 1 second
         });
     </script>
 

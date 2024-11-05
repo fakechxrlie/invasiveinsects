@@ -103,10 +103,13 @@
                             console.log('Processing county:', countyName); // Log the county being processed
                             
                             if (counties[countyName]) { // Only add click event for specified counties
-                                layer.on('click', () => {
-                                    console.log('Clicked county:', countyName); // Log when a county is clicked
-                                    window.open(counties[countyName], '_blank'); // Redirect to county URL
-                                });
+                                // Bind a popup to the county
+                                const popupContent = `
+                                    <h3>${countyName}</h3>
+                                    <p><strong>More Information:</strong> <a href="${counties[countyName]}" target="_blank">Click here for details</a></p>
+                                `;
+                                
+                                layer.bindPopup(popupContent); // Add the popup to the layer
                             }
                         }
                     }).addTo(map);
@@ -122,3 +125,4 @@
 
 </body>
 </html>
+
